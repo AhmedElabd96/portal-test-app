@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+      function onLoad() {
+        define("Main", ["@penta-b/ma-lib", "@penta-b/ma-lib-layout"], function (
+          MaLib,
+          MaLibLayout
+        ) {
+          "use strict";
+          
+          window.MaLib = MaLib;
+          
+          window.MaLibLayout = MaLibLayout;
+          MaLib.setBaseURL(baseUrl);
+          MaLib.setUserToken(
+            "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJtRHN2UHhHUTEwTlpETlcwbllGdTYyeTh3aXBEYlU1bmhBZ2xUQW1ibHhBIn0.eyJleHAiOjE2NjMzNDUxMDksImlhdCI6MTY2MjQ4MTE1MCwiYXV0aF90aW1lIjoxNjYyNDgxMTA5LCJqdGkiOiI3OTEwOTJkNi0zNjJlLTQxOWEtYThkNi03ZDAwMzk0ZmIwZDAiLCJpc3MiOiJodHRwczovL25ld2NhcGl0YWwuZWFzdHVzLmNsb3VkYXBwLmF6dXJlLmNvbTo4NDQzL2F1dGgvcmVhbG1zL0FDVURDT0MiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZDMxM2Y5Y2EtYzI2NS00ZmQ2LWExZmQtZTlmMDg1MjAxYmU0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiTW5BIiwibm9uY2UiOiJkMjk3Y2RiYS1hOThhLTQ3ODAtYTRhMi1hYTkyZjNjNmViMzEiLCJzZXNzaW9uX3N0YXRlIjoiMWI1YmJlYTItMjk5Yy00MzQwLTgxMTItOTllZDc1ZTVlZmUxIiwiYWNyIjoiMCIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJBQ1VEIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsInZpZXctYXBwbGljYXRpb25zIiwidmlldy1jb25zZW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJtYW5hZ2UtY29uc2VudCIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgZW1haWwiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInBob25lTnVtYmVyIjoiMDEwNjg3MDg5MjAiLCJnZW5kZXIiOiJNYWxlIiwibmlja25hbWUiOiJhY3VkIiwibmFtZSI6IkFDVUQgVXNlciIsInByZWZlcnJlZF91c2VybmFtZSI6ImFjdWQiLCJnaXZlbl9uYW1lIjoiQUNVRCIsImZhbWlseV9uYW1lIjoiVXNlciIsImVtYWlsIjoidXNlckBhY3VkLmNvbSJ9.KDGlbOQY3olaxSqV5Fgd2QJW3nmojacLMbYR3c7aKCjwV-0729BYj_bJhII_p_H28j4eCjPdcXcjon96GOG7QI-RnMT7VbVuABvbfhMT67jSSlwBvkkH6QrAl5EEe7Uf3GyTSegfgp1rCn6jsPrjqSvDjvecdaKVlgJvz8mEVwb3xYL5ohd2dkDkqcxHKQlGDZewYAe81IbFsEoS7CNcUu6UM9UxWRFuxb_At7QdceW3Q-K8OMnTpBidZqiZQh5NG4s-Hoayre1uih3BlBoGks-OAIlLWvwMyuJLjdxsyRez9kk6XyfziC27nXZ58bx0id-A5YYqx5PIj2j-zK-umg"
+          );
+          MaLib.setSelectedOrg("ACUDCOC");
+          MaLib.setSelectedRole("ACUD");
+          MaLib.initLocalization("ar");
+          MaLib.setLocale({ alias: "ar", isrtl: true });
+          MaLib.setSelectedApp("ACUD");
+          MaLibLayout.initLayout("app", ["WEB_FRIENDLY"]);
+        });
+        System.import("Main");
+      }
+   
+      const baseUrl = "http://newcapital.eastus.cloudapp.azure.com:8080";
+      const packageMap = {
+        imports: {
+          react: `${baseUrl}/ma-lib/libs/react@16/react.production.min.js`,
+          "react-dom": `${baseUrl}/ma-lib/libs/react-dom@16.13.1/react-dom.production.min.js`,
+          "react-redux": `${baseUrl}/ma-lib/libs/react-redux-7.0.3/react-redux.min.js`,
+          redux: `${baseUrl}/ma-lib/libs/redux-4.0.1/redux.min.js`,
+          "@penta-b/mna-penta-smart-forms": `${baseUrl}/mna-penta-smart-forms/build/Form-Builder-mna0.0.1.js`,
+          "@penta-b/grid": `${baseUrl}/penta-plugin-grid/build/plugin_grid.js`,
+          "@penta-b/ma-lib": `${baseUrl}/ma-lib/build/ma-lib.js`,
+          "@penta-b/ma-lib-layout": `${baseUrl}/ma-lib-layout/ma-lib-layout.js`,
+        },
+      };
+      const script = document.createElement("script");
+      script.type = "systemjs-importmap";
+      script.innerHTML = JSON.stringify(packageMap, null, 2);
+      document.head.appendChild(script);
+      function addScript(src, onLoad) {
+        var newScript = document.createElement("script");
+        newScript.src = src;
+        newScript.onload = onLoad;
+        newScript.type = "text/javascript";
+        document.head.appendChild(newScript);
+      }
+      addScript(`${baseUrl}/ma-lib/libs/systemjs/3.0.0/system.js`, () => {
+        addScript(`${baseUrl}/ma-lib/libs/systemjs/3.0.0/extras/amd.js`, () => {
+          addScript(
+            `${baseUrl}/ma-lib/libs/systemjs/3.0.0/extras/named-register.js`,
+            onLoad
+          );
+        });
+      });
+    </script>
+    <style>
+   
+      body , html , #app{
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" style="width: 100%; height: 100%"></div>
+  </body>
+</html>
